@@ -22,7 +22,7 @@ pipeline {
     }
     stage("aqua"){
       steps{
-        sh "docker images"
+        bat "docker images"
     }
 }
 }
