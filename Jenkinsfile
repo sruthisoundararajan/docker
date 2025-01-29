@@ -26,8 +26,15 @@ pipeline {
     }
     stage("aqua"){
       steps{
+        try{
 				aqua customFlags: '', hideBase: false, hostedImage: '', localImage: 'sruthisoundararajan/test', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: '', showNegligible: false
     }
+      }
+      catch(Exception e){
+      echo "Failed Scan"
+      }
+      cleanWs()
+      
 }
 }
 }
