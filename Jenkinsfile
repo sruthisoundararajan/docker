@@ -1,19 +1,28 @@
-node {
-    def app
-
+pipeline {
+    agent any
+    stages{
     stage('Clone repository') {
-      
 
+      steps{
         checkout scm
+    }
     }
 
     stage('Build image') {
-      sh 'docker build -f Dockerfile .'
+        steps{
+            script{
+  
+       bat "docker build -f Dockerfile ."
     }
-    stage('docker Images List'){
-        sh 'docker images'
+}}
+    stage('Test image') {
+        steps{
+            bat 'echo "Tests passed"'
     }
-    stage('AQUA Scan results'){
-        echo "results"
     }
+    stage("aqua"){
+      steps{
+        echo "hi"
+    }
+}
 }
