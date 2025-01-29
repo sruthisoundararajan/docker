@@ -9,13 +9,14 @@ pipeline {
 
       steps{
         checkout scm
+         bat "docker rm $(docker ps -a -q)"
     }
     }
 
     stage('Build image') {
         steps{
             script{
-      bat "docker rm $(docker ps -a -q)"
+     
        bat "docker build -t sruthisoundararajan/test -f Dockerfile ."
     }
 }}
