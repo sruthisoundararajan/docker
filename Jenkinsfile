@@ -16,7 +16,7 @@ pipeline {
         steps{
             script{
   
-       bat "docker build -t image -f Dockerfile ."
+       bat "docker build -t sruthisoundararajan/test:1 -f Dockerfile ."
     }
 }}
     stage('Test image') {
