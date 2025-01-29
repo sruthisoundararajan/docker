@@ -8,8 +8,7 @@ node {
     }
 
     stage('Build image') {
-  
-       app = docker.build("sruthisoundararajan/test")
+      sh 'docker build -f Dockerfile .
     }
     stage('docker Images List'){
         sh 'docker images'
