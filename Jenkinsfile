@@ -8,7 +8,7 @@ node {
     }
 
     stage('Build image') {
-      sh 'docker build -f Dockerfile .
+      sh 'docker build -f Dockerfile .'
     }
     stage('docker Images List'){
         sh 'docker images'
