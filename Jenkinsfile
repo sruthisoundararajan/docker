@@ -1,5 +1,10 @@
 pipeline {
     agent any
+  environment {
+		registry = "sruthisoundararajan/test"
+		registryCredential = 'bitsanjay198'
+		dockerImage = ''
+	}
     stages{
     stage('Clone repository') {
 
@@ -17,12 +22,12 @@ pipeline {
 }}
     stage('Test image') {
         steps{
-            bat 'echo "Tests passed"'
+            bat "docker images"
     }
     }
     stage("aqua"){
       steps{
-        bat "docker images"
+        aqua customFlags: '', hideBase: false, hostedImage: '', localImage: registry ", locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: '', showNegligible: false
     }
 }
 }
