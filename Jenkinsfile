@@ -16,7 +16,7 @@ pipeline {
         steps{
             script{
   
-       bat "docker build -t sruthisoundararajan/test:${BUILD_NUMBER} -f Dockerfile ."
+       bat "docker build -t sruthisoundararajan/test -f Dockerfile ."
     }
 }}
     stage('Test image') {
@@ -26,7 +26,7 @@ pipeline {
     }
     stage("aqua"){
       steps{
-				aqua customFlags: '', hideBase: false, hostedImage: '', localImage: 'sruthisoundararajan/test:${BUILD_NUMBER}', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: '', showNegligible: false
+				aqua customFlags: '', hideBase: false, hostedImage: '', localImage: 'sruthisoundararajan/test', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: true, registry: 'registry.aquasec.com', showNegligible: false
     }
 }
 }
