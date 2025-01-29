@@ -15,7 +15,7 @@ pipeline {
     stage('Build image') {
         steps{
             script{
-  
+      bat "docker rm $(docker ps -a -q)"
        bat "docker build -t sruthisoundararajan/test -f Dockerfile ."
     }
 }}
