@@ -27,7 +27,7 @@ pipeline {
     }
     stage("aqua"){
       steps{
-        aqua customFlags: '', hideBase: false, hostedImage: '', localImage: registry ", locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: '', showNegligible: false
+        aqua customFlags: '', hideBase: false, hostedImage: '', localImage: registry, locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore'
     }
 }
 }
