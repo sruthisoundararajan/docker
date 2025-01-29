@@ -22,7 +22,7 @@ pipeline {
     }
     stage("aqua"){
       steps{
-        echo "hi"
+        sh "docker images"
     }
 }
 }
