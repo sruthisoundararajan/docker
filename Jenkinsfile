@@ -9,7 +9,7 @@ pipeline {
 
       steps{
         checkout scm
-         bat "docker rm $(docker ps -a -q)"
+         bat "docker ps -a -q"
     }
     }
 
