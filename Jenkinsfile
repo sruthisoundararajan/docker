@@ -15,8 +15,8 @@ pipeline {
     stage('Build image') {
         steps{
             script{
-     
-       bat "docker build -t sruthisoundararajan/test -f Dockerfile ."
+             echo "Docker Build Step Skipped"
+       // bat "docker build -t sruthisoundararajan/test -f Dockerfile ."
     }
 }}
     stage('Test image') {
