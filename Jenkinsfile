@@ -26,8 +26,7 @@ pipeline {
     }
     stage("aqua"){
       steps{
-				aqua customFlags: '', hideBase: false, hostedImage: '', localImage: 'sruthisoundararajan/test', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: '', showNegligible: false
-      
+aqua containerRuntime: 'docker', customFlags: '', hideBase: false, hostedImage: '', localImage: 'sruthisoundararajan/test:1', localToken: '', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: '', runtimeDirectory: '', scannerPath: '', showNegligible: false, tarFilePath: ''      
 }
 }
 }
