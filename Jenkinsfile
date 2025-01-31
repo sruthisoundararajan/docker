@@ -26,7 +26,7 @@ pipeline {
     }
     stage("mend image scan"){
     steps{
-     def scanResults = mendScan([
+     mendScan([
                 'productName': config.productName ?: 'default-product',
                 'projectName': config.projectName ?: 'container-scan',
                 'containerImage': "sruthisoundararajan/test:latest",
