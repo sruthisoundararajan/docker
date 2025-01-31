@@ -29,7 +29,7 @@ pipeline {
      def scanResults = mendScan([
                 'productName': config.productName ?: 'default-product',
                 'projectName': config.projectName ?: 'container-scan',
-                'containerImage': "sruthisoundararajan/test:75",
+                'containerImage': "sruthisoundararajan/test:latest",
                 'includeVulnerabilities': true,
                 'includeLicenses': true,
                 'failOnError': config.failOnCritical ?: true,
