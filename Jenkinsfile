@@ -28,14 +28,7 @@ pipeline {
     }
     stage("mend image scan"){
     steps{
-    mendContainerScan([
-                                apiKey: env.MEND_API_KEY,
-                                userKey: env.MEND_USER_KEY,
-                                imageName: "sruthisoundararajan/test:latest",
-                                failOnError: true,
-                                includeDistroPackages: true,
-                                includeLayers: true
-                            ])
+      sh 'mend image sruthisoundararajan/test:latest'
     }
     }
     stage("aqua"){
