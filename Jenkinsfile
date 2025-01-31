@@ -2,6 +2,8 @@ pipeline {
     agent any
   environment {
 		registry = "sruthisoundararajan/test"
+       MEND_API_KEY = credentials('mend-api-key')
+        MEND_USER_KEY = credentials('mend-user-key')
 
 	}
     stages{
@@ -26,16 +28,14 @@ pipeline {
     }
     stage("mend image scan"){
     steps{
-     mendScan([
-                'productName': config.productName ?: 'default-product',
-                'projectName': config.projectName ?: 'container-scan',
-                'containerImage': "sruthisoundararajan/test:latest",
-                'includeVulnerabilities': true,
-                'includeLicenses': true,
-                'failOnError': config.failOnCritical ?: true,
-                'vulnerabilitySeverityThreshold': config.severityThreshold ?: 'CRITICAL',
-                'scanLocalImage': true  // Important flag for local image scanning
-            ])
+    mendContainerScan([
+                                apiKey: env.MEND_API_KEY,
+                                userKey: env.MEND_USER_KEY,
+                                imageName: "sruthisoundararajan/test:latest",
+                                failOnError: true,
+                                includeDistroPackages: true,
+                                includeLayers: true
+                            ])
     }
     }
     stage("aqua"){
