@@ -12,7 +12,7 @@ pipeline {
         steps{
             script{
              // echo "Docker Build Step Skipped"
-       bat "docker build -t test:14 -f Dockerfile ."
+       bat "docker build -t test:15 -f Dockerfile ."
     }
 }}
     stage('Test image') {
@@ -22,7 +22,7 @@ pipeline {
     }
     stage("aqua"){
       steps{
-aqua containerRuntime: 'docker', customFlags: '', hideBase: false, hostedImage: '', localImage: 'sruthisoundararajan/test:1', localToken: '', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: '', runtimeDirectory: '', scannerPath: '', showNegligible: false, tarFilePath: ''      
+aqua containerRuntime: 'docker', customFlags: '', hideBase: false, hostedImage: '', localImage: 'test:15', localToken: '', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: '', runtimeDirectory: '', scannerPath: '', showNegligible: false, tarFilePath: ''      
 }
 }
 }
