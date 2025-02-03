@@ -8,13 +8,13 @@ pipeline {
     }
     }
 
-//     stage('Build image') {
-//         steps{
-//             script{
-//              // echo "Docker Build Step Skipped"
-//        bat "docker build -t test:14 -f Dockerfile ."
-//     }
-// }}
+    stage('Build image') {
+        steps{
+            script{
+             // echo "Docker Build Step Skipped"
+       bat "docker build -t test:14 -f Dockerfile ."
+    }
+}}
     stage('Test image') {
         steps{
             bat "docker images"
