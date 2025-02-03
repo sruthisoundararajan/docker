@@ -12,7 +12,7 @@ pipeline {
         steps{
             script{
              // echo "Docker Build Step Skipped"
-       bat "docker build -t test:11 -f Dockerfile ."
+       bat "docker build -t test:14 -f Dockerfile ."
     }
 }}
     stage('Test image') {
