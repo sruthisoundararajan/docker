@@ -29,5 +29,6 @@ aqua containerRuntime: 'docker', customFlags: '', hideBase: false, hostedImage: 
   post{
     always{
       cleanWs()
+      bat "docker rmi test:15"
     }}
 }
