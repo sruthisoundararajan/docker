@@ -1,22 +1,10 @@
-FROM ubuntu:20.04
+FROM node:latest AS node
 
-# Avoid prompts from apt
-ENV DEBIAN_FRONTEND=noninteractive
+RUN mkdir -p /app
+WORKDIR /app
+COPY package*.json /app/
+RUN npm install 
+COPY . /app/
+EXPOSE 4200
 
-# Install basic tools
-RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    wget \
-    build-essential \
-    openjdk-11-jdk \
-    maven \
-    nodejs \
-    npm \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set JAVA_HOME
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-
-# Set working directory
-WORKDIR /workspace
+CMD ["npm", "run", "start"]
