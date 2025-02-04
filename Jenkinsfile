@@ -18,6 +18,7 @@ pipeline {
     stage('Test image') {
         steps{
             bat "docker images"
+            bat "docker login <registry_url> -u <username> -p <password>"
     }
     }
     stage("aqua"){
